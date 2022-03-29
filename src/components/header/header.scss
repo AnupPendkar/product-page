@@ -1,0 +1,61 @@
+@import "../../App.scss";
+
+.header {
+  overflow: hidden;
+  h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: $very-dark-blue;
+  }
+  p {
+    font-size: $para-fs;
+    font-weight: 400;
+    color: $grayish-blue;
+  }
+
+  .info-container {
+    padding: 1rem 1rem;
+    .upper-title {
+      font-size: 13px;
+      color: $orange;
+      margin: 0.4rem 0;
+    }
+
+    .desc {
+      margin: 0.5rem 0;
+    }
+
+    .price-container {
+      @include allign(hor);
+      justify-content: space-between;
+      .values {
+        @include allign(hor);
+        gap: 0.8rem;
+      }
+
+      .discount {
+        padding: 2px;
+        background: $pale-orange;
+        .total-discount {
+          color: $orange;
+        }
+      }
+
+      .original-price {
+        text-decoration: line-through;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .header {
+    margin-top: 60px;
+    @include allign(hor);
+    padding: 0 2rem;
+    gap: 1rem;
+    .info-container {
+      flex: 50%;
+    }
+  }
+}

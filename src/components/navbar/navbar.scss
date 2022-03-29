@@ -1,0 +1,216 @@
+@import "../../App.scss";
+
+.navbar {
+  background: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  padding: 0 1rem;
+  z-index: 100;
+  @include allign(ver);
+  .mb-navbar {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+
+    img {
+      cursor: pointer;
+    }
+
+    .menu {
+      width: 16px;
+    }
+
+    .logo {
+      width: 6rem;
+      min-width: 5rem;
+    }
+
+    .cart-container {
+      margin-left: auto;
+      width: 20px;
+      min-width: 16px;
+      position: relative;
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: red;
+        position: absolute;
+        top: -2px;
+        right: -5px;
+      }
+    }
+
+    .avatar {
+      width: 20px;
+      min-width: 16px;
+    }
+
+    .open-menu {
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100vh;
+      background: white;
+      gap: 1.3rem;
+      @include allign(ver);
+      padding-left: 1.3rem;
+      z-index: 1000;
+      transition: left 0.3s ease-in-out;
+      img {
+        width: 20px;
+        margin-bottom: auto;
+        margin-top: 1rem;
+      }
+
+      .contact {
+        margin-bottom: auto;
+      }
+
+      .link {
+        font-weight: 700;
+      }
+    }
+  }
+
+  .link {
+    color: $very-dark-blue;
+    font-weight: 400;
+    cursor: pointer;
+  }
+
+  .dt-navbar {
+    display: none;
+  }
+
+  .cart-view {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    border-radius: 5px;
+    padding: 0.5rem 0.4rem;
+    width: 75%;
+    margin: 0 auto;
+    background: white;
+    @include allign(ver);
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.75);
+    display: none;
+    .title {
+      padding: 0.3rem 0;
+      border-bottom: 1px solid $grayish-blue;
+    }
+
+    .prod-cont {
+      @include allign(hor);
+      justify-content: space-around;
+      gap: 0.5rem;
+      margin: 0.5rem 0;
+      color: $grayish-blue;
+      font-weight: 400;
+      img {
+        width: 40px;
+        min-width: 25px;
+      }
+
+      .prod-desc {
+        .prod-name {
+          max-width: 100%;
+          font-size: 14px;
+        }
+
+        .prod-price {
+          font-size: 14px;
+        }
+      }
+
+      .total {
+        color: $very-dark-blue;
+        font-weight: 700;
+        margin-left: 0.4rem;
+      }
+
+      .delete-icon {
+        width: 15px;
+        min-width: 12px;
+        cursor: pointer;
+      }
+    }
+
+    .cart-btn {
+      padding: 0.3rem 0.6rem;
+      background: $orange;
+      border: none;
+      font-size: $para-fs;
+      border-radius: 5px;
+      cursor: pointer;
+      color: white;
+    }
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .navbar {
+    padding: 0 3rem;
+    .mb-navbar {
+      display: none;
+    }
+
+    .dt-navbar {
+      @include allign(hor);
+      gap: 0.8rem;
+      img {
+        width: 25px;
+        cursor: pointer;
+      }
+
+      .logo {
+        width: 7rem;
+      }
+
+      .cart-logo {
+        margin-left: auto;
+      }
+
+      .link {
+        font-size: $para-fs;
+      }
+
+      .collection {
+        margin-left: auto;
+      }
+    }
+    @keyframes cartAnimation {
+      0% {
+        top: 40px;
+        right: 1%;
+      }
+      25% {
+        top: 45px;
+        right: 3%;
+      }
+      50% {
+        top: 60x;
+        right: 4%;
+      }
+      100% {
+        top: 65px;
+        right: 5%;
+      }
+    }
+    .cart-view {
+      top: 65px;
+      right: 5%;
+      left: auto;
+      padding: 0.5rem 0.4rem;
+      width: 30%;
+      margin: 0 0;
+      animation-name: cartAnimation;
+      animation-duration: 0.1s;
+      animation-fill-mode: both;
+    }
+  }
+}

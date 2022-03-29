@@ -1,0 +1,92 @@
+@import "../../App.scss";
+
+.header-img-container {
+  position: relative;
+  width: 100%;
+  .main-img {
+    width: 100%;
+    max-height: 16rem;
+    object-fit: cover;
+  }
+
+  .arrow-container {
+    position: absolute;
+    top: 50%;
+    background: white;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    transform: translate(0%, -50%);
+    @include allign(hor);
+    justify-content: center;
+    cursor: pointer;
+    .icon {
+      width: 7px;
+    }
+  }
+
+  .pre {
+    left: 5%;
+  }
+
+  .next {
+    right: 5%;
+  }
+
+  .mb-slider {
+    @include allign(hor);
+    width: max-content;
+    transition: transform 0.3s ease-in-out;
+    img {
+      min-width: 100vw;
+      display: inline-block;
+    }
+  }
+
+  .dt-slider {
+    display: none;
+  }
+
+  .theme-container {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .header-img-container {
+    flex: 50%;
+    .main-img {
+      object-fit: contain;
+    }
+
+    .arrow-container {
+      display: none;
+    }
+
+    .theme-container {
+      @include allign(hor);
+      justify-content: center;
+      margin-top: 1rem;
+      img {
+        width: 60px;
+        margin: 0 0.5rem;
+        border-radius: 10px;
+        cursor: pointer;
+        padding: 0.3px;
+      }
+
+      .active {
+        border: 2px solid $orange;
+        opacity: 0.6;
+      }
+    }
+
+    .mb-slider {
+      display: none;
+    }
+
+    .dt-slider {
+      display: flex;
+    }
+  }
+}
